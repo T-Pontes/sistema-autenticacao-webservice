@@ -19,7 +19,7 @@ public class Permissao implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private Entidade entidade;
+	private Integer entidade;
 	private Boolean pesquisa;
 	private Boolean inclusao;
 	private Boolean atualizacao;
@@ -32,7 +32,7 @@ public class Permissao implements Serializable {
 	public Permissao() {
 	}
 
-	public Permissao(Integer id, Entidade entidade, Boolean pesquisa, Boolean inclusao, Boolean atualizacao, Boolean delecao,
+	public Permissao(Integer id, Integer entidade, Boolean pesquisa, Boolean inclusao, Boolean atualizacao, Boolean delecao,
 			Perfil perfil) {
 		super();
 		this.id = id;
@@ -53,11 +53,11 @@ public class Permissao implements Serializable {
 	}
 
 	public Entidade getEntidade() {
-		return entidade;
+		return Entidade.toEnum(entidade);
 	}
 
 	public void setEntidade(Entidade entidade) {
-		this.entidade = entidade;
+		this.entidade = entidade.getId();
 	}
 
 	public Boolean getPesquisa() {

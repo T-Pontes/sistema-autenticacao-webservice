@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.devprojects.sistemaautenticacao.entities.Perfil;
 import com.devprojects.sistemaautenticacao.entities.Permissao;
-import com.devprojects.sistemaautenticacao.entities.enums.Entidade;
 import com.devprojects.sistemaautenticacao.repositories.PerfilRepository;
 import com.devprojects.sistemaautenticacao.repositories.PermissaoRepository;
 
@@ -36,14 +35,14 @@ public class SistemaAutenticacaoApplication implements CommandLineRunner {
 		Perfil pfl4 = new Perfil(null, "Cliente");
 		
 		//Perfil Administrador
-		Permissao pms1 = new Permissao(null,Entidade.USUARIO,true,true,true,true,pfl1);
-		Permissao pms2 = new Permissao(null,Entidade.PRODUTO,true,true,true,true,pfl1);
-		Permissao pms3 = new Permissao(null,Entidade.CLIENTE,true,true,true,true,pfl1);
-		Permissao pms4 = new Permissao(null,Entidade.FUNCIONARIO,true,true,true,true,pfl1);
-		Permissao pms5 = new Permissao(null,Entidade.VENDA,true,true,true,true,pfl1);
+		Permissao pms1 = new Permissao(null,1,true,true,true,true,pfl1);
+		Permissao pms2 = new Permissao(null,2,true,true,true,true,pfl1);
+		Permissao pms3 = new Permissao(null,3,true,true,true,true,pfl1);
+		Permissao pms4 = new Permissao(null,4,true,true,true,true,pfl1);
+		Permissao pms5 = new Permissao(null,5,true,true,true,true,pfl1);
 		//Perfil Vendedor
-		Permissao pms6 = new Permissao(null,Entidade.CLIENTE,true,true,true,false,pfl3);
-		Permissao pms7 = new Permissao(null,Entidade.VENDA,true,true,false,false,pfl3);
+		Permissao pms6 = new Permissao(null,2,true,true,true,false,pfl3);
+		Permissao pms7 = new Permissao(null,5,true,true,false,false,pfl3);
 		
 		pfl1.getPermissoes().addAll(Arrays.asList(pms1,pms2,pms3,pms4,pms5));
 		pfl3.getPermissoes().addAll(Arrays.asList(pms6,pms7));
