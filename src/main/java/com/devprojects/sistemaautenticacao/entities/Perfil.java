@@ -1,12 +1,15 @@
 package com.devprojects.sistemaautenticacao.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Perfil implements Serializable{
@@ -17,6 +20,10 @@ public class Perfil implements Serializable{
 	private Integer id;
 	private String descricao;
 	
+	@OneToMany(mappedBy="perfil")
+	private List<Permissao>permissoes=new ArrayList<>();
+	
+
 	public Perfil() {
 	}
 
@@ -40,6 +47,14 @@ public class Perfil implements Serializable{
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public List<Permissao> getPermissoes() {
+		return permissoes;
+	}
+
+	public void setPermissoes(List<Permissao> permissoes) {
+		this.permissoes = permissoes;
 	}
 
 	@Override
