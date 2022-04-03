@@ -1,7 +1,7 @@
 package com.devprojects.sistemaautenticacao.entities;
 
 import java.io.Serializable;
-import java.time.Instant;
+import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.CascadeType;
@@ -19,7 +19,7 @@ public class Pessoa implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	private Instant dataNascimento;
+	private Date dataNascimento;
 	private String cpf;
 	
 	@OneToOne(cascade = CascadeType.ALL, mappedBy="pessoa")
@@ -28,7 +28,7 @@ public class Pessoa implements Serializable{
 	public Pessoa() {
 	}
 
-	public Pessoa(Integer id, String nome, Instant dataNascimento, String cpf) {
+	public Pessoa(Integer id, String nome, Date dataNascimento, String cpf) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -52,11 +52,11 @@ public class Pessoa implements Serializable{
 		this.nome = nome;
 	}
 
-	public Instant getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Instant dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
@@ -72,6 +72,10 @@ public class Pessoa implements Serializable{
 		return usuario;
 	}
 
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

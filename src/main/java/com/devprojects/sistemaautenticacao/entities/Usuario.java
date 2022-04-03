@@ -15,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Usuario implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -25,6 +27,7 @@ public class Usuario implements Serializable{
 	private String email;
 	private String senha;
 	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name="pessoa_id")
 	@MapsId
@@ -75,6 +78,10 @@ public class Usuario implements Serializable{
 
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
+	}
+	
+	public List<Perfil> getPerfis() {
+		return perfis;
 	}
 
 	@Override

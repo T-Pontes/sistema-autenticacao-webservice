@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.devprojects.sistemaautenticacao.entities.enums.Entidade;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Permissao implements Serializable {
@@ -27,6 +28,7 @@ public class Permissao implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "perfil_id")
+	@JsonIgnore
 	private Perfil perfil;
 
 	public Permissao() {
